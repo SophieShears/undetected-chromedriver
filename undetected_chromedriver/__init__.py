@@ -824,10 +824,7 @@ class Chrome(selenium.webdriver.chrome.webdriver.WebDriver):
         return self
 
     def __exit__(self, exc_type, exc_val, exc_tb):
-        self.service.stop()
-        time.sleep(self._delay)
-        self.service.start()
-        self.start_session()
+        self.quit()
 
     def __hash__(self):
         return hash(self.options.debugger_address)
